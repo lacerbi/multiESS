@@ -2,7 +2,15 @@ function [mESS,Sigma,b] = multiESS(X,Sigma,b,Noffsets,Nb)
 %MULTIESS Compute multivariate effective sample size of Markov chain.
 %   MESS = MULTIESS(X) computes effective sample size MESS of single Markov 
 %   chain X, using the multivariate dependence structure of the process. 
-%   X is a n-by-p array, where each row is a p-dimensional sample.
+%   X is a n-by-p array, where each row is a p-dimensional sample and n
+%   is the current chain sample size.
+%
+%   The effective sample size of a Markov chain is the size of an i.i.d. 
+%   sample with the same covariance structure as the current chain. MESS is 
+%   given by MESS = n * det(LAMBDA)^(1/p) / det(SIGMA)^(1/p), where LAMBDA 
+%   is the sample covariance matrix and SIGMA is an estimate of the Monte 
+%   Carlo covariance matrix for the Markov chain (here obtained by batch 
+%   estimation).
 %
 %   MESS = MULTIESS(X,SIGMA) passes optional estimate of covariance matrix
 %   in Markov chain central limit theorem (CLT), as returned by a previous 
