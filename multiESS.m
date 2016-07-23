@@ -20,11 +20,11 @@ function [mESS,Sigma,b] = multiESS(X,Sigma,b,Noffsets,Nb)
 %   covariance matrix in Markov chain CLT. B can take a numeric value 
 %   between 1 and n/2, or a char value between: 
 %     
-%   'sqroot'    set B = floor(n^(1/2)) (for chains with slower mixing time)
-%   'cuberoot'  set B = floor(n^(1/3)) (for chains with fast mixing time)
-%   'lESS'      pick the B that produces the minimum effective sample size
+%   'sqroot'    B=floor(n^(1/2)) (for chains with slow mixing time; default)
+%   'cuberoot'  B=floor(n^(1/3)) (for chains with fast mixing time)
+%   'lESS'      pick the B that produces the lowest effective sample size
 %               for a number of B ranging from n^(1/4) to n/max(10,p); this 
-%               is a conservative choice (default)
+%               is a conservative choice
 %
 %   MESS = MULTIESS(X,[],B,NOFFSETS). If n is not divisible by B, SIGMA is
 %   recomputed for up to NOFFSETS subsets of the data with different 
@@ -66,7 +66,7 @@ function [mESS,Sigma,b] = multiESS(X,Sigma,b,Noffsets,Nb)
 %   Version:    23/Jul/2016 (beta)
 
 if nargin < 2; Sigma = []; end
-if nargin < 3 || isempty(b); b = 'lESS'; end
+if nargin < 3 || isempty(b); b = 'sqroot'; end
 if nargin < 4 || isempty(Noffsets); Noffsets = 10; end
 if nargin < 5; Nb = []; end
 
