@@ -7,11 +7,19 @@ See also the R package [mcmcse](https://cran.r-project.org/web/packages/mcmcse/i
 
 *Disclaimer:* This is a working version in need of some additional testing. The interface may change in the future.
 
-### Details:
+### Details
 
 The effective sample size of a Markov chain is the size of an i.i.d. sample with the same covariance structure as the current chain.
 *mESS* is given by *mESS* = *n* |Λ|^{1/*p*}/ |Σ|^{1/*p*}, where *n* is the current sample size, Λ is the sample covariance matrix, *p* is the number of parameters and Σ is an estimate of the Monte Carlo covariance matrix for the Markov chain (here obtained by batch estimation).
 
-### Reference:
+### Reference
 
 Vats, D., Flegal, J. M., & Jones, G. L. "Multivariate Output Analysis for Markov chain Monte Carlo", arXiv preprint arXiv:1512.07713 (2015). ([link](http://arxiv.org/abs/1512.07713))
+
+### License
+
+This is free, open source software released under the GPL-3 License. See LICENSE.txt for details.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Use this software at your own risk.
