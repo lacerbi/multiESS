@@ -58,7 +58,7 @@ function [mESS,Sigma,b] = multiESS(X,Sigma,b,Noffsets,Nb)
 % Copyright (C) 2016 Luigi Acerbi
 %
 % This software is distributed under the GNU General Public License 
-% (version 3 or later); please refer to the file license.txt, included with 
+% (version 3 or later); please refer to the file LICENSE.txt, included with 
 % the software, for details.
 
 %   Author:     Luigi Acerbi
