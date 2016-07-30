@@ -23,7 +23,7 @@ function [mESS,Sigma,b] = multiESS(X,Sigma,b,Noffsets,Nb)
 %   'sqroot'    B=floor(n^(1/2)) (for chains with slow mixing time; default)
 %   'cuberoot'  B=floor(n^(1/3)) (for chains with fast mixing time)
 %   'lESS'      pick the B that produces the lowest effective sample size
-%               for a number of B ranging from n^(1/4) to n/max(10,p); this 
+%               for a number of B ranging from n^(1/4) to n/max(20,p); this 
 %               is a conservative choice
 %
 %   MESS = MULTIESS(X,[],B,NOFFSETS). If n is not divisible by B, SIGMA is
@@ -146,7 +146,7 @@ if ischar(b)
         case 'cuberoot'; b = floor(n.^(1/3));
         case 'less'; 
             b_min = floor(n^(1/4));
-            b_max = max(floor(n/max(p,10)),floor(n^(1/2)));
+            b_max = max(floor(n/max(p,20)),floor(n^(1/2)));
             if isempty(Nb); Nb = 200; end
             % Try NB log-spaced values of B from B_MIN to B_MAX
             b = unique(round(exp(linspace(log(b_min),log(b_max),Nb))));
