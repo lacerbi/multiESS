@@ -203,6 +203,7 @@ if isempty(Sigma)
     for j = offsets
         Y = reshape(X(j+(1:a*b),:),[b,a,p]);
         Ybar = squeeze(mean(Y,1));
+        if p == 1; Ybar = Ybar(:); end
         Z = bsxfun(@minus,Ybar,theta);
         for i = 1:a
             Sigma = Sigma + Z(i,:)'*Z(i,:);
